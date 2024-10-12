@@ -1,1 +1,11 @@
-<li>{{taskTitle}}</li>
+
+@if (!isEditable) {
+    <li (click)="activeEdit()" style="display: flex;"> {{taskTitle}}</li>
+} @else {
+    <input type="text" [(ngModel)]="taskTitle" />
+    <button type="button"  (click)="activeEdit()" >Editar</button>    
+}
+
+
+
+

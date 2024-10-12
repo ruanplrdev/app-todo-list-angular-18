@@ -14,7 +14,10 @@ interface Task {
     template: `
         <ul>
         @for (task of tasks; track task.id) {
-            <todo-list-item [taskTitle]="task.titleTask"></todo-list-item>
+            <div style="display:flex;">
+                <todo-list-item [taskTitle]="task.titleTask"></todo-list-item>
+                <button type="button" (click)="deletar(task.id)">deletar</button>
+            </div>
         }
         </ul>
         <label for="framework">
@@ -25,7 +28,8 @@ interface Task {
     styles: `
         ul {
             display: flex;
-            flex-direction: column
+            flex-direction: column;
+            padding:0 10px;
         }
     `
 })
@@ -44,5 +48,8 @@ export default class TodoList {
             titleTask: titleTxt
         }
         this.tasks.push(item);
+    }
+    deletar(id:string){
+        this.tasks =  this.tasks.filter((value)=> value.id !== id );
     }
 }
