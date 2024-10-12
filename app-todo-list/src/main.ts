@@ -1,6 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import TodoList from './todo-list.component.js';
 
-bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(TodoList)
   .catch((err) => console.error(err));
